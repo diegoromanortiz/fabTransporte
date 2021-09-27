@@ -1,8 +1,31 @@
 from flask import render_template
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder import ModelView, ModelRestApi
-
+from app import app
 from . import appbuilder, db
+
+from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad
+
+
+
+class SaldosView(ModelView):
+    datamodel = SQLAInterface(Saldos)
+    list_columns = ["fecha","cliente_id","saldo"]
+
+class ServicioTecnicoView(ModelView):
+    datamodel = SQLAInterface(ServicioTecnico)
+    list_columns = ["fecha", "costo", "cliente_id","camion_id"]
+
+
+
+class CamionesView(ModelView):
+    datamodel = SQLAInterface(Camiones)
+    list_columns = ["marca", "modelo", "cliente_id"]
+
+class ClientesView(ModelView):
+    datamodel = SQLAInterface(Clientes)
+    list_columns = ["nombre", "apellido", "email"]
+
 
 """
     Create your Model based REST API::
@@ -47,4 +70,36 @@ def page_not_found(e):
     )
 
 
+class LocalidadView(ModelView):
+    datamodel = SQLAInterface(Localidad)
+    add_columns = ["name"]
+    edit_columns = ["name"]
+    show_columns = ["name"]
+    list_columns = ["name"]
+
+
+
 db.create_all()
+
+appbuilder.add_view(
+   ClientesView, "Clientes", icon="fa-folder-open-o", category="Clientes"
+)
+appbuilder.add_view(
+    SaldosView, "Saldos", icon="fa-folder-open-o", category= "Clientes"
+)
+appbuilder.add_separator("Clientes")
+appbuilder.add_view(
+    CamionesView, "Camiones", icon="fa-folder-open-o", category="Camiones"
+)
+appbuilder.add_view(
+    ServicioTecnicoView, "ServicioTecnico", icon="fa-folder-open-o", category= "ServicioTecnico"
+
+)
+
+
+appbuilder.add_view(
+    LocalidadView, "Localidad", icon="fa-folder-open-o", category="Clientes"
+)
+
+
+
