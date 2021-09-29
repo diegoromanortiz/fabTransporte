@@ -15,7 +15,7 @@ class Saldos(Model):
     saldo = Column(Float)
     
 def today():
-    return datetime.datetime.today().strftime("%Y-%m-%d")
+    return datetime.datetime.today().strftime('%d/%m/%Y')
 
 class FormaDePago(Model):
     id = Column(Integer, primary_key=True)
@@ -29,7 +29,7 @@ class FormaDePago(Model):
 class ServicioTecnico(Model):
       
     stid = Column(Integer, primary_key=True)
-    fecha = Column(Date)
+    fecha = Column(String,default=today)
     costo = Column(Float)
     formaPago =Column(String)
     cliente_id = Column(Integer, ForeignKey("clientes.id"), nullable=False)
