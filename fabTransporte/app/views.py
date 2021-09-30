@@ -8,7 +8,7 @@ from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad,FormaDeP
 
 
 class FormaDePagoView(ModelView):
-    datamodel = SQLAInterface(Saldos)
+    datamodel = SQLAInterface(FormaDePago)
     list_columns = ["tipoDePago "]
 
 class SaldosView(ModelView):
