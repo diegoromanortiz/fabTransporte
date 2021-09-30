@@ -38,7 +38,7 @@ class ServicioTecnico(Model):
     fecha = Column(String,default=today)
     costo = Column(Float)
     formaPago = relationship(
-        "Forma de pago", secondary=assoc_forma_de_pago_servicio_tecnico, backref="cliente"
+        "Forma de pago", secondary=assoc_forma_de_pago_servicio_tecnico, backref="ServicioTecnico"
     )
     cliente_id = Column(Integer, ForeignKey("clientes.id"), nullable=False)
     Clientes = relationship("Clientes")
