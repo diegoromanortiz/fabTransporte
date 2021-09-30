@@ -1,7 +1,7 @@
 import datetime
 
 from flask_appbuilder import Model
-from sqlalchemy import Column, Integer, String, ForeignKey,Float,Date,Table
+from sqlalchemy import Column, Integer, String, ForeignKey,Float,Date,Table,Text
 from sqlalchemy.orm import relationship
 
 
@@ -17,7 +17,9 @@ class Saldos(Model):
 def today():
     return datetime.datetime.today().strftime('%d/%m/%Y')
 
-
+class Repuesto(Model):
+    rid = Column(Integer, primary_key=True)
+    descripcion = Column (Text)
 
 class ServicioTecnico(Model):
       
