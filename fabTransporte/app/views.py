@@ -89,7 +89,7 @@ class FormaDePagoView(ModelView):
     show_columns = ["tipoDePago"]
     list_columns = ["tipoDePago"]
 
-    
+
 db.create_all()
 
 appbuilder.add_view(
