@@ -17,9 +17,7 @@ class Saldos(Model):
 def today():
     return datetime.datetime.today().strftime('%d/%m/%Y')
 
-class Repuesto(Model):
-    rid = Column(Integer, primary_key=True)
-    descripcion = Column (Text)
+
 
 class ServicioTecnico(Model):
       
