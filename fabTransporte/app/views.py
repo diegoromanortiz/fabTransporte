@@ -7,9 +7,7 @@ from . import appbuilder, db
 from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad,FormaDePago
 
 
-class FormaDePagoView(ModelView):
-    datamodel = SQLAInterface(FormaDePago)
-    list_columns = ["tipoDePago "]
+
 
 class SaldosView(ModelView):
     datamodel = SQLAInterface(Saldos)
@@ -82,12 +80,7 @@ class LocalidadView(ModelView):
     show_columns = ["name"]
     list_columns = ["name"]
 
-class FormaDePagoView(ModelView):
-    datamodel = SQLAInterface( FormaDePago)
-    add_columns = [" tipoDePago"]
-    edit_columns = ["tipoDePago"]
-    show_columns = ["tipoDePago"]
-    list_columns = ["tipoDePago"]
+
 
 
 db.create_all()
@@ -107,9 +100,7 @@ appbuilder.add_view(
     ServicioTecnicoView, "ServicioTecnico", icon="fa-folder-open-o", category= "ServicioTecnico"
 
 )
-appbuilder.add_view(
-    FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="Forma_de_pago"
-)
+
 appbuilder.add_view(
     LocalidadView, "Localidad", icon="fa-folder-open-o", category="Clientes"
 )
