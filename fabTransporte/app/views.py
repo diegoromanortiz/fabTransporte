@@ -92,9 +92,7 @@ db.create_all()
 appbuilder.add_view(
    ClientesView, "Clientes", icon="fa-folder-open-o", category="Clientes"
 )
-appbuilder.add_view(
-  FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="Clientes"
-)
+
 appbuilder.add_view(
     SaldosView, "Saldos", icon="fa-folder-open-o", category= "Clientes"
 )
@@ -106,7 +104,9 @@ appbuilder.add_view(
     ServicioTecnicoView, "ServicioTecnico", icon="fa-folder-open-o", category= "ServicioTecnico"
 
 )
-
+appbuilder.add_view(
+  FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="Clientes"
+)
 
 appbuilder.add_view(
     LocalidadView, "Localidad", icon="fa-folder-open-o", category="Clientes"
