@@ -105,7 +105,7 @@ appbuilder.add_view(
 
 )
 appbuilder.add_view(
-    FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="Clientes"
+    FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="ServicioTecnico"
 )
 
 appbuilder.add_view(
