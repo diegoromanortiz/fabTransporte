@@ -104,12 +104,12 @@ appbuilder.add_view(
     ServicioTecnicoView, "ServicioTecnico", icon="fa-folder-open-o", category= "ServicioTecnico"
 
 )
-appbuilder.add_view(
-    FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="ServicioTecnico"
-)
 
 appbuilder.add_view(
     LocalidadView, "Localidad", icon="fa-folder-open-o", category="Clientes"
+)
+appbuilder.add_view(
+    FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="ServicioTecnico"
 )
 
 
