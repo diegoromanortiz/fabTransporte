@@ -4,9 +4,12 @@ from flask_appbuilder import ModelView, ModelRestApi
 from app import app
 from . import appbuilder, db
 
-from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad
+from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad,FormaDePago
 
 
+class FormaDePagoView(ModelView):
+    datamodel = SQLAInterface(Saldos)
+    list_columns = ["tipoDePago "]
 
 class SaldosView(ModelView):
     datamodel = SQLAInterface(Saldos)
@@ -70,6 +73,13 @@ def page_not_found(e):
     )
 
 
+class FormaDePagoView(ModelView):
+    datamodel = SQLAInterface( FormaDePago)
+    add_columns = [" tipoDePago"]
+    edit_columns = ["tipoDePago"]
+    show_columns = ["tipoDePago"]
+    list_columns = ["tipoDePago"]
+
 class LocalidadView(ModelView):
     datamodel = SQLAInterface(Localidad)
     add_columns = ["name"]
@@ -77,12 +87,13 @@ class LocalidadView(ModelView):
     show_columns = ["name"]
     list_columns = ["name"]
 
-
-
 db.create_all()
 
 appbuilder.add_view(
    ClientesView, "Clientes", icon="fa-folder-open-o", category="Clientes"
+)
+appbuilder.add_view(
+  FormaDePagoView, "Forma_de_pago", icon="fa-folder-open-o", category="Clientes"
 )
 appbuilder.add_view(
     SaldosView, "Saldos", icon="fa-folder-open-o", category= "Clientes"
