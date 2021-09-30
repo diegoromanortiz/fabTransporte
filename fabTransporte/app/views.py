@@ -4,11 +4,9 @@ from flask_appbuilder import ModelView, ModelRestApi
 from app import app
 from . import appbuilder, db
 
-from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad,Repuesto
+from .models import  ServicioTecnico,Camiones,Clientes,Saldos,Localidad
 
-class RepuestoView(ModelView):
-    datamodel = SQLAInterface(Repuesto)
-    list_columns = ["descripcion"]
+
 
 class SaldosView(ModelView):
     datamodel = SQLAInterface(Saldos)
@@ -109,10 +107,7 @@ appbuilder.add_view(
     ServicioTecnicoView, "ServicioTecnico", icon="fa-folder-open-o", category= "ServicioTecnico"
 
 )
-appbuilder.add_view(
-    RepuestoView, "Repuestos", icon="fa-folder-open-o", category= "ServicioTecnico"
 
-)
 
 
 
