@@ -24,14 +24,22 @@ class FormaDePago(Model):
     def __repr__(self):
         return self.tipoDePago
 
-
+assoc_forma_de_pago_servicio_tecnico = Table(
+    "forma_de_pago_servicio_tecnico",
+    Model.metadata,
+    Column("id", Integer, primary_key=True),
+    Column("forma_de_pago_id", Integer, ForeignKey("forma_de_pago.id")),
+    Column("servicio_tecnico_id", Integer, ForeignKey("servicio_tecnico.id")),
+)
 
 class ServicioTecnico(Model):
       
     stid = Column(Integer, primary_key=True)
     fecha = Column(String,default=today)
     costo = Column(Float)
-    formaPago =Column(String)
+    formaPago = relationship(
+        "Forma de pago", secondary=assoc_forma_de_pago_servicio_tecnico, backref="cliente"
+    )
     cliente_id = Column(Integer, ForeignKey("clientes.id"), nullable=False)
     Clientes = relationship("Clientes")
     camion_id = Column(Integer, ForeignKey("camiones.cid"), nullable=False)
