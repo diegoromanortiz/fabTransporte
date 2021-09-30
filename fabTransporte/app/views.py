@@ -73,12 +73,7 @@ def page_not_found(e):
     )
 
 
-class FormaDePagoView(ModelView):
-    datamodel = SQLAInterface( FormaDePago)
-    add_columns = [" tipoDePago"]
-    edit_columns = ["tipoDePago"]
-    show_columns = ["tipoDePago"]
-    list_columns = ["tipoDePago"]
+
 
 class LocalidadView(ModelView):
     datamodel = SQLAInterface(Localidad)
@@ -87,6 +82,14 @@ class LocalidadView(ModelView):
     show_columns = ["name"]
     list_columns = ["name"]
 
+class FormaDePagoView(ModelView):
+    datamodel = SQLAInterface( FormaDePago)
+    add_columns = [" tipoDePago"]
+    edit_columns = ["tipoDePago"]
+    show_columns = ["tipoDePago"]
+    list_columns = ["tipoDePago"]
+
+    
 db.create_all()
 
 appbuilder.add_view(
